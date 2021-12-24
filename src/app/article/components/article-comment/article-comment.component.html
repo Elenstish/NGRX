@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-block">
+        <p class="card-text">
+            {{commentProps.body}}
+        </p>
+    </div>
+    <div class="card-footer">
+        <a class="comment-author" [routerLink]="['/profile', commentProps.author.username]">
+            <img class="comment-author-img" [src]="commentProps.author.image" alt="avatar">
+        </a>
+        &nbsp;
+        <a class="comment-author" [routerLink]="['/profile', commentProps.author.username]">
+            {{commentProps.author.username}}
+        </a>
+        <span class="date-posted">{{commentProps.createdAt | date: 'longDate'}}</span>
+    </div>
+</div>
