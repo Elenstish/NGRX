@@ -12,7 +12,7 @@ export class GetCommentEffect {
     getComment$ = createEffect(() => this.actions$.pipe(
         ofType(getCommentAction),
         switchMap(({slug}) => {
-            return this.articleService.getComment(slug).pipe(
+            return this.articleService.getArticleComments(slug).pipe(
                 map((comment: CommentInterface[]) => {
                     return getCommentSuccessAction({comment});
                 }),

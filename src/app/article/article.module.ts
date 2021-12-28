@@ -12,6 +12,7 @@ import {GetCurrentArticleEffect} from './store/effects/get-current-article.effec
 import {ArticleCommentComponent} from './components/article-comment/article-comment.component';
 import {reducers} from './store/redusers/article-module.reducers';
 import {GetCommentEffect} from './store/effects/get-comment.effect';
+import {PaginationModule} from '../shared/modules/pagination/pagination.module';
 
 const routes: Routes = [
     {
@@ -30,7 +31,8 @@ const routes: Routes = [
         RouterModule,
         ErrorMessageModule,
         LoadingModule,
-        BannerModule
+        BannerModule,
+        PaginationModule
     ],
     providers: [ArticleService]
 })

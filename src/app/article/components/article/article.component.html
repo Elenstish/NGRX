@@ -4,19 +4,25 @@
         <app-loading *ngIf="isLoading$ | async"></app-loading>
         <app-error-message *ngIf="error$ | async"></app-error-message>
 
-        <div class="row article-content" *ngIf="article">
+        <div class="row article-content" *ngIf="article$ | async">
             <div class="col-xs-12">
                 <div>
-                    <p>{{ article.body }}</p>
+                    <p>{{ (article$ | async).body }}</p>
                 </div>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" *ngIf="comments?.length > 0">
             <div class="col-xs-12 col-md-8 offset-md-2">
-                <ng-container *ngFor="let comment of (comments$ | async)">
+                <ng-container *ngFor="let comment of comments">
                     <app-article-comment [comment]="comment"></app-article-comment>
                 </ng-container>
+
+                <app-pagination [total]="commentsBase.length"
+                                [limit]="limit"
+                                [url]="baseUrl"
+                                [currentPage]="currentPage">
+                </app-pagination>
             </div>
         </div>
     </div>

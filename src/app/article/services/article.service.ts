@@ -27,7 +27,7 @@ export class ArticleService {
     return this.http.get<GetArticleResponseInterface>(fullUrl).pipe(map(this.getArticle));
   }
 
-  getComment(slug: string): Observable<CommentInterface[]> {
+  getArticleComments(slug: string): Observable<CommentInterface[]> {
     const fullUrl = environment.apiUrl + '/articles/' + slug + '/comments';
     return this.http.get<GetCommentResponseInterface>(fullUrl).pipe(map(this.getComments));
   }
