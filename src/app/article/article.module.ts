@@ -13,6 +13,7 @@ import {ArticleCommentComponent} from './components/article-comment/article-comm
 import {reducers} from './store/redusers/article-module.reducers';
 import {GetCommentEffect} from './store/effects/get-comment.effect';
 import {PaginationModule} from '../shared/modules/pagination/pagination.module';
+import {TagListModule} from '../shared/modules/tag-list/tag-list.module';
 
 const routes: Routes = [
     {
@@ -32,7 +33,8 @@ const routes: Routes = [
         ErrorMessageModule,
         LoadingModule,
         BannerModule,
-        PaginationModule
+        PaginationModule,
+        TagListModule
     ],
     providers: [ArticleService]
 })

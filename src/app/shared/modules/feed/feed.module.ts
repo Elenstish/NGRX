@@ -9,6 +9,7 @@ import {FeedService} from './services/feed.service';
 import {RouterModule} from '@angular/router';
 import {ErrorMessageModule} from '../error-message/error-message.module';
 import {LoadingModule} from '../loading/loading.module';
+import {TagListModule} from '../tag-list/tag-list.module';
 
 @NgModule({
     declarations: [FeedComponent],
@@ -18,7 +19,8 @@ import {LoadingModule} from '../loading/loading.module';
         EffectsModule.forFeature([GetFeedEffect]),
         RouterModule,
         ErrorMessageModule,
-        LoadingModule
+        LoadingModule,
+        TagListModule
     ],
     exports: [FeedComponent],
     providers: [FeedService]

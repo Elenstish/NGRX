@@ -22,6 +22,7 @@ const articleReducer = createReducer(
         (state): ArticleStateInterface => ({
             ...state,
             isLoading: true,
+            article: null
         })
     ),
     on(getArticleSuccessAction,
@@ -45,6 +46,7 @@ const commentsReducer = createReducer(
         (state): CommentStateInterface => ({
             ...state,
             isLoading: true,
+            comments: null
         })
     ),
     on(getCommentSuccessAction,

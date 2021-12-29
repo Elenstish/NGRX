@@ -8,11 +8,12 @@
             <div class="col-xs-12">
                 <div>
                     <p>{{ (article$ | async).body }}</p>
+                    <app-tag-list [tags]="(article$ | async).tagList"></app-tag-list>
                 </div>
             </div>
         </div>
 
-        <div class="row" *ngIf="comments?.length > 0">
+        <div class="row" *ngIf="commentsBase?.length > 0">
             <div class="col-xs-12 col-md-8 offset-md-2">
                 <ng-container *ngFor="let comment of comments">
                     <app-article-comment [comment]="comment"></app-article-comment>
