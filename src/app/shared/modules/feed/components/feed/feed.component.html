@@ -2,6 +2,8 @@
 <app-error-message *ngIf="error$ | async"></app-error-message>
 
 <div *ngIf="feed$ | async">
+    <app-search (searchQuery)="onSearch($event)"></app-search>
+
     <div class="article-preview" *ngFor="let article of (feed$ | async)?.articles">
         <div class="article-meta">
             <a [routerLink]="['/profile', article.author.username]">

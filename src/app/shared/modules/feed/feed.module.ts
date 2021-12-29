@@ -10,9 +10,11 @@ import {RouterModule} from '@angular/router';
 import {ErrorMessageModule} from '../error-message/error-message.module';
 import {LoadingModule} from '../loading/loading.module';
 import {TagListModule} from '../tag-list/tag-list.module';
+import {SearchComponent} from './components/search/search.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
-    declarations: [FeedComponent],
+    declarations: [FeedComponent, SearchComponent],
     imports: [
         CommonModule,
         StoreModule.forFeature('feed', reducers),
@@ -20,7 +22,9 @@ import {TagListModule} from '../tag-list/tag-list.module';
         RouterModule,
         ErrorMessageModule,
         LoadingModule,
-        TagListModule
+        TagListModule,
+        ReactiveFormsModule,
+        FormsModule
     ],
     exports: [FeedComponent],
     providers: [FeedService]
