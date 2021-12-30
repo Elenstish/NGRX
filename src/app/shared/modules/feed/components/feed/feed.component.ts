@@ -4,7 +4,6 @@ import {getFeedAction} from '../../store/actions/get-feed.action';
 import {Observable} from 'rxjs';
 import {GetFeedResponseInterface} from '../../types/get-feed-response.interface';
 import {errorSelect, feedSelect, isLoadingSelect} from '../../store/selectors/feed-feature.selector';
-import {map} from 'rxjs/operators';
 
 @Component({
     selector: 'app-feed',
@@ -39,12 +38,6 @@ export class FeedComponent implements OnInit {
 
     onSearch(keywords: string): any {
         this.searchField = keywords;
-        console.warn(keywords);
-        // this.feed$.pipe(
-        //     map(articles => {
-        //         return articles.articles.filter(article => article.title.toUpperCase().indexOf(keywords.toUpperCase()) !== -1);
-        //     }))
-        //     .subscribe(el => console.warn(el));
     }
 
 }
