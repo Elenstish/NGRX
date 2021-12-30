@@ -12,9 +12,10 @@ import {LoadingModule} from '../loading/loading.module';
 import {TagListModule} from '../tag-list/tag-list.module';
 import {SearchComponent} from './components/search/search.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { SearchPipe } from './pipe/search.pipe';
 
 @NgModule({
-    declarations: [FeedComponent, SearchComponent],
+    declarations: [FeedComponent, SearchComponent, SearchPipe],
     imports: [
         CommonModule,
         StoreModule.forFeature('feed', reducers),

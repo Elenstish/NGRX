@@ -4,7 +4,7 @@
 <div *ngIf="feed$ | async">
     <app-search (searchQuery)="onSearch($event)"></app-search>
 
-    <div class="article-preview" *ngFor="let article of (feed$ | async)?.articles">
+    <div class="article-preview" *ngFor="let article of ((feed$ | async)?.articles | search: searchField)">
         <div class="article-meta">
             <a [routerLink]="['/profile', article.author.username]">
                 <img [src]="article.author.image" alt="avatar">

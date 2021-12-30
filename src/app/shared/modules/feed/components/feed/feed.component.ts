@@ -17,6 +17,7 @@ export class FeedComponent implements OnInit {
     isLoading$: Observable<boolean>;
     error$: Observable<string | null>;
     feed$: Observable<GetFeedResponseInterface | null>;
+    searchField = '';
 
     constructor(private store: Store) {
     }
@@ -37,6 +38,7 @@ export class FeedComponent implements OnInit {
     }
 
     onSearch(keywords: string): any {
+        this.searchField = keywords;
         console.warn(keywords);
         // this.feed$.pipe(
         //     map(articles => {

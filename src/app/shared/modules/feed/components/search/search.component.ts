@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.title.valueChanges.pipe(
-            filter(query => query.length > 2),
+            // filter(query => query.length > 2),
             distinctUntilChanged(),
             takeUntil(this.destroy$)
         ).subscribe((query) => {
