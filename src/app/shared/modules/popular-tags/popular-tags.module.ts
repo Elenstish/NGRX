@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {PopularTagsComponent} from './components/popular-tags/popular-tags.component';
 import {RouterModule} from '@angular/router';
 import {ErrorMessageModule} from '../error-message/error-message.module';
-import {LoadingModule} from '../loading/loading.module';
 import {PopularTagsService} from './services/popular-tags.service';
 import {EffectsModule} from '@ngrx/effects';
 import {GetPopularTagsEffect} from './store/effects/get-popular-tags.effect';
@@ -16,7 +15,6 @@ import {reducers} from './store/redusers/popular-tags.reducers';
         CommonModule,
         RouterModule,
         ErrorMessageModule,
-        LoadingModule,
         EffectsModule.forFeature([GetPopularTagsEffect]),
         StoreModule.forFeature('tags', reducers),
     ],

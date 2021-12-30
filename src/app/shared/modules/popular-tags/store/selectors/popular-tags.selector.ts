@@ -4,11 +4,6 @@ import {PopularTagsStateInterface} from '../../types/popular-tags-state.interfac
 
 export const popularTagsFeatureSelector = createFeatureSelector<AppStateInterface, PopularTagsStateInterface>('tags');
 
-export const isLoadingSelect = createSelector(
-    popularTagsFeatureSelector,
-    (feedState: PopularTagsStateInterface) => feedState.isLoading
-);
-
 export const errorSelect = createSelector(
     popularTagsFeatureSelector,
     (popularTagsState: PopularTagsStateInterface) => popularTagsState.error

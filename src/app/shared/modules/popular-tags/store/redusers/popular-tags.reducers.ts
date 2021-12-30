@@ -3,7 +3,6 @@ import {PopularTagsStateInterface} from '../../types/popular-tags-state.interfac
 import {getPopularTagsAction, getPopularTagsFailureAction, getPopularTagsSuccessAction} from '../actions/get-popular-tags.action';
 
 const initialState: PopularTagsStateInterface = {
-    isLoading: false,
     error: null,
     tags: null
 };
@@ -12,21 +11,18 @@ const popularTagsReducer = createReducer(
     initialState,
     on(getPopularTagsAction,
         (state): PopularTagsStateInterface => ({
-            ...state,
-            isLoading: true,
+            ...state
         })
     ),
     on(getPopularTagsSuccessAction,
         (state, action): PopularTagsStateInterface => ({
             ...state,
-            isLoading: false,
             tags: action.tags
         })
     ),
     on(getPopularTagsFailureAction,
         (state): PopularTagsStateInterface => ({
-            ...state,
-            isLoading: false,
+            ...state
         })
     )
 );
