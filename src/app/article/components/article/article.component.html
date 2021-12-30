@@ -2,7 +2,9 @@
     <app-banner></app-banner>
     <div class="container page">
         <app-loading *ngIf="isLoading$ | async"></app-loading>
-        <app-error-message *ngIf="error$ | async"></app-error-message>
+        <app-error-message *ngIf="error$ | async"
+                           [message]="error$ | async">
+        </app-error-message>
 
         <div class="row article-content" *ngIf="article$ | async">
             <div class="col-xs-12">
