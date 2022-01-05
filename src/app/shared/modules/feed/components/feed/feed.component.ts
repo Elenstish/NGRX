@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {select, Store} from '@ngrx/store';
 import {getFeedAction} from '../../store/actions/get-feed.action';
 import {Observable} from 'rxjs';
@@ -10,7 +10,7 @@ import {errorSelect, feedSelect, isLoadingSelect} from '../../store/selectors/fe
     templateUrl: './feed.component.html',
     styleUrls: ['./feed.component.scss']
 })
-export class FeedComponent implements OnInit {
+export class FeedComponent implements OnInit, OnChanges {
     @Input('apiUrl') apiUrlProps: string;
 
     isLoading$: Observable<boolean>;
@@ -24,6 +24,14 @@ export class FeedComponent implements OnInit {
     ngOnInit(): void {
         this.initializeValues();
         this.fetchData();
+
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        const isApiUrlChanged = !changes.apiUrlProps.firstChange && changes.apiUrlProps.currentValue !== changes.apiUrlProps.previousValue;
+        if (isApiUrlChanged) {
+            this.fetchData();
+        }
     }
 
     initializeValues(): void {
